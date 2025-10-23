@@ -1,14 +1,11 @@
 package br.fiap.AssistencialTecnica.web.dto;
 
-
 import lombok.Data;
 
 @Data
-public class ClienteDTO {
+public class EquipamentoDTO {
     private Long id;
     private String nome;
-    private String email;
-    private String telefone;
-    private String senha;
-
+    private String setor;
+    private String tipo;
 }
