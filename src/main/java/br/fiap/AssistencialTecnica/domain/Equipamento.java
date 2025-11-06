@@ -2,23 +2,21 @@ package br.fiap.AssistencialTecnica.domain;
 
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.boot.actuate.autoconfigure.metrics.MetricsProperties;
 
 import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
 @Table(name = "JAVA_EQUIPAMENTO")
-public class Equipamento {
+public class Equipamento extends Cliente {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Column(name = "ID_EQUIP")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="ID_CLIENTE", foreignKey = @ForeignKey(name = "FK_EQUIP_CLIENTE"))
     private Cliente cliente;
     @Column(name = "TIPO", length = 50, nullable = false)
